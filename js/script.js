@@ -2,14 +2,15 @@
 const userChoiceElem = document.getElementById("selector");
 const playBtn = document.getElementById("play-button");
 let numbersClicked = [];
+let numbersArray = [];
 let arrayBomb = [];
 let widthSquare = "";
 let squareNumber = "";
-let gameResult = "gamenotover";
+let gameResult = "gameNotOver";
 
 // Quando premo il tasto gioca
 playBtn.addEventListener("click", function () {
-    gameResult = "gamenotover";
+    gameResult = "gameNotOver";
     document.getElementById("grid").innerHTML = ``;
     document.getElementById("result-text").innerHTML = ``;
     numbersClicked = [];
@@ -34,15 +35,15 @@ playBtn.addEventListener("click", function () {
 
     }
 
-    const numbersArray = genOrderedNumber(squareNumber);
+    numbersArray = genOrderedNumber(squareNumber);
     console.log(numbersArray);
 
     arrayBomb = generateBomb(squareNumber);
-    console.log (arrayBomb)
+    console.log(arrayBomb)
 
     const gridElem = document.getElementById("grid");
 
-    for(let i = 0; i < numbersArray.length; i++) {
+    for (let i = 0; i < numbersArray.length; i++) {
 
         const curNumber = numbersArray[i];
         //Genera lo square con il numero all'interno a la classe in base alla difficoltà
@@ -68,7 +69,7 @@ playBtn.addEventListener("click", function () {
 function genOrderedNumber(maxNumber) {
 
     let arrayOrderedNum = [];
-    for(let i = 1; i <= maxNumber; i++) {
+    for (let i = 1; i <= maxNumber; i++) {
         arrayOrderedNum.push(i);
     }
 
@@ -92,12 +93,12 @@ function generateRndNumber(min, max) {
  */
 function generateBomb(maxNumberBomb) {
     const bombArray = [];
-    while (bombArray.length <  16) {
-       const rndNumber = generateRndNumber(1, maxNumberBomb)
+    while (bombArray.length < 16) {
+        const rndNumber = generateRndNumber(1, maxNumberBomb)
 
-       if (!bombArray.includes(rndNumber)) {
-        bombArray.push(rndNumber);
-       }
+        if (!bombArray.includes(rndNumber)) {
+            bombArray.push(rndNumber);
+        }
     }
     return bombArray;
 }
@@ -127,14 +128,14 @@ function generateGridSquare(innerNumber, squareWidth) {
  */
 function squareClick() {
     // se sto ancora giocando
-    if(gameResult === "gamenotover") {
+    if (gameResult === "gameNotOver") {
         const clickedNumber = parseInt(this.textContent);
         console.log(clickedNumber);
 
-        if(arrayBomb.includes(clickedNumber)) {
+        if (arrayBomb.includes(clickedNumber)) {
             // aggiunge la classe bomb al numero cliccato
             this.classList.add("bomb");
-            
+
             // conta la lunghezza dell'array dei numeri cliccati prima della bomba
             let clickedNumberlenght = parseInt(numbersClicked.length)
             console.log(clickedNumberlenght);
@@ -148,13 +149,13 @@ function squareClick() {
             this.classList.add("clicked-bg");
 
             // se il numero cliccato non è nell'array dei numeri cliccati lo aggiungo
-        if (!numbersClicked.includes(clickedNumber)) {
-            numbersClicked.push(clickedNumber);
-        }
+            if (!numbersClicked.includes(clickedNumber)) {
+                numbersClicked.push(clickedNumber);
+            }
             console.log(numbersClicked);
 
             // se il numero degli elemnti cliccati è uguale al numero degli elementi massimi meno le bombe allora l'user ha vinto
-            if (numbersClicked.length === squareNumber - 16){
+            if (numbersClicked.length === squareNumber - 16) {
                 document.getElementById("result-text").innerHTML = `Complimenti sei sopravvisuto`;
                 gameResult = "gameover"
             }

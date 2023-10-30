@@ -68,6 +68,37 @@ function genOrderedNumber(maxNumber) {
 }
 
 /**
+ * Genera un numero casuale di numeri compresi tra min e max 
+ * @param {number} min
+ * @param {number} max
+ * @return {array}
+ */
+function generateRndNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+/**
+ * Genera un numero di 16 bombe comprese tra 1 e maxNumberBomb e le inserisce in un array
+ * @param {number} maxNumberBomb
+ * @return {array}
+ */
+function generateBomb(maxNumberBomb) {
+    const bombArray =[];
+    while (bombArray <  16) {
+       const rndNumber = generateRndNumber(1, maxNumberBomb)
+
+       if (!bombArray.includes(rndNumber)) {
+        bombArray.push(rndNumber);
+       }
+    }
+    return bombArray;
+}
+
+
+
+
+/**
  * Dà al numero dell'array la classe square e la classe della larghezza in base alla difficoltà scelta, così da creare la cella con i bordi
  * @param {numer} maxNumber
  * @param {string} squareWidth

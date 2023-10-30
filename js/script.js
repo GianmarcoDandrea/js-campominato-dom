@@ -1,6 +1,8 @@
 // DICHIARAZIONI COSTANTI
 const userChoiceElem = document.getElementById("selector");
 const playBtn = document.getElementById("play-button");
+let numbersClicked = [];
+let arrayBomb = [];
 
 // Quando premo il tasto gioca
 playBtn.addEventListener("click", function () {
@@ -33,6 +35,9 @@ playBtn.addEventListener("click", function () {
 
     const numbersArray = genOrderedNumber(squareNumber);
     console.log(numbersArray);
+
+    arrayBomb = generateBomb(squareNumber);
+    console.log (arrayBomb)
 
     const gridElem = document.getElementById("grid");
 
@@ -84,8 +89,8 @@ function generateRndNumber(min, max) {
  * @return {array}
  */
 function generateBomb(maxNumberBomb) {
-    const bombArray =[];
-    while (bombArray <  16) {
+    const bombArray = [];
+    while (bombArray.length <  16) {
        const rndNumber = generateRndNumber(1, maxNumberBomb)
 
        if (!bombArray.includes(rndNumber)) {
@@ -118,10 +123,20 @@ function generateGridSquare(innerNumber, squareWidth) {
 
 
 /**
- * Funcione che dà la classe per il colore del background quando clicchiamo sullo square
+ * Funzione che controlla se il numero cliccato è una bomba o meno,
+ * se è una bomba l'utete perde altrimeti aggiunge il numero cliccato nell'array degli elementi cliccati
+ * se gli elementi cliccati sono 
  */
 function squareClick() {
-    this.classList.add("clicked-bg");
+    const clickedNumber = parseInt(this.textContent);
+    console.log(clickedNumber);
+    if(arrayBomb.includes(clickedNumber)) {
+        this.classList.add("bomb")
+    } else {
+        this.classList.add("clicked-bg");
+    }
+
+    
 }
 
 

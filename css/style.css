@@ -79,6 +79,10 @@ header {
     background-color: lightblue;
 }
 
+.bomb {
+    background-color: red;
+}
+
 /****************** FOOTER ****************/
 footer {
     background-color: var(--white-bg-color);

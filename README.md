@@ -1,18 +1,21 @@
 # ESERCIZIO #
-L'utente clicca su un bottone che genererà una griglia di gioco quadrata.  
-Ogni cella ha un numero progressivo, da 1 a 100.  
-Ci saranno quindi 10 caselle per ognuna delle 10 righe.  
-Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro ed emetto un messaggio in console con il numero della cella cliccata.
+Generare una griglia di gioco quadrata in cui ogni cella contiene un numero compreso tra 1 e 100.  
+Il computer deve generare 16 numeri casuali nello stesso range della difficoltà prescelta: le bombe.  
+I numeri nella lista delle bombe non possono essere duplicati.
+[23, 65, 1, 4,78,15,....];  
+In seguito l'utente clicca su una cella: se il numero è presente nella lista dei numeri generati - abbiamo calpestato una bomba - la cella si colora di rosso e la partita termina, altrimenti la cella cliccata si colora di azzurro e l'utente può continuare a cliccare sulle altre celle.  
+La partita termina quando il giocatore clicca su una bomba o raggiunge il numero massimo possibile di numeri consentiti.
+Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha cliccato su una cella che non era una bomba.  
+**BONUS:**  
 
-**Bonus**  
-Aggiungere una select accanto al bottone di generazione, che fornisca una scelta tra tre diversi livelli di difficoltà:
-- con difficoltà 1 => 100 caselle, con un numero compreso tra 1 e 100, divise in 10 caselle per 10 righe;
-- con difficoltà 2 => 81 caselle, con un numero compreso tra 1 e 81, divise in 9 caselle per 9 righe;
-- con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
+1. L'utente indica un livello di difficoltà in base al quale viene generata una griglia di gioco quadrata, in cui ogni cella contiene un numero tra quelli compresi in un range:
+con difficoltà 1 => tra 1 e 100
+con difficoltà 2 => tra 1 e 81
+con difficoltà 3 => tra 1 e 49
+2. quando si clicca su una bomba e finisce la partita, evitare che si possa cliccare su altre celle
+3. quando si clicca su una bomba e finisce la partita, il software scopre tutte le bombe nascoste
 
 ## LOGICA ##
-1. Stampare la griglia 10 x 10
-2. Quando si clicca su una casella si colora di azzurro
-3. Metto in console il numero selezionato
+
 
 

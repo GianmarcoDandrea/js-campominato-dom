@@ -127,38 +127,39 @@ function generateGridSquare(innerNumber, squareWidth) {
  */
 function squareClick() {
     // se sto ancora giocando
-
     if(gameResult === "gamenotover") {
-    const clickedNumber = parseInt(this.textContent);
-    console.log(clickedNumber);
+        const clickedNumber = parseInt(this.textContent);
+        console.log(clickedNumber);
 
-    if(arrayBomb.includes(clickedNumber)) {
-        // aggiunge la classe bomb al numero cliccato
-        this.classList.add("bomb");
+        if(arrayBomb.includes(clickedNumber)) {
+            // aggiunge la classe bomb al numero cliccato
+            this.classList.add("bomb");
+            
+            // conta la lunghezza dell'array dei numeri cliccati prima della bomba
+            let clickedNumberlenght = parseInt(numbersClicked.length)
+            console.log(clickedNumberlenght);
 
-        // conta la lunghezza dell'array dei numeri cliccati prima della bomba
-        let clickedNumberlenght = parseInt(numbersClicked.length)
-        console.log(clickedNumberlenght);
-
-        // stampa dell'esito
-        document.getElementById("result-text").innerHTML = `Mi dipiace ma sei esploso...Sei sopravvisuto per ${clickedNumberlenght} passi`;
-        gameResult = "gameover"
-
-    } else {
-         // aggiunge la classe clicked-bg al numero cliccato
-        this.classList.add("clicked-bg");
-
-        // se il numero cliccato non è nell'array dei numeri cliccati lo aggiungo
-       if (!numbersClicked.includes(clickedNumber)) {
-        numbersClicked.push(clickedNumber);
-       }
-        console.log(numbersClicked);
-        // se il numero degli elemnti cliccati è uguale al numero degli elementi massimi meno le bombe allora l'user ha vinto
-        if (numbersClicked.length === squareNumber - 16){
-            document.getElementById("result-text").innerHTML = `Complimenti sei sopravvisuto`;
+            // stampa dell'esito
+            document.getElementById("result-text").innerHTML = `Mi dipiace ma sei esploso...Sei sopravvisuto per ${clickedNumberlenght} passi`;
             gameResult = "gameover"
-        }
 
+        } else {
+            // aggiunge la classe clicked-bg al numero cliccato
+            this.classList.add("clicked-bg");
+
+            // se il numero cliccato non è nell'array dei numeri cliccati lo aggiungo
+        if (!numbersClicked.includes(clickedNumber)) {
+            numbersClicked.push(clickedNumber);
+        }
+            console.log(numbersClicked);
+
+            // se il numero degli elemnti cliccati è uguale al numero degli elementi massimi meno le bombe allora l'user ha vinto
+            if (numbersClicked.length === squareNumber - 16){
+                document.getElementById("result-text").innerHTML = `Complimenti sei sopravvisuto`;
+                gameResult = "gameover"
+            }
+
+        }
+        return gameResult;
     }
-    return gameResult;
-}}
+}

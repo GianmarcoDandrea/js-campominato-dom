@@ -4,8 +4,6 @@
     --white-bg-color: #ffffff;
 
     /* header */
-    /* debug */
-    --header-heigth: 10vh;
 
     /* wrapper */
     /* debug */
@@ -31,9 +29,7 @@ img {
 /***************** HEADER ****************/
 header {
     background-color: var(--white-bg-color);
-    /* debug */
-    height: var(--header-heigth);
-    ;
+
 }
 
 .logo {
@@ -52,7 +48,7 @@ header {
 }
 
 #grid {
-    width: 40%;
+    width: 35%;
 }
 
 .square {

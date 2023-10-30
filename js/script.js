@@ -125,7 +125,7 @@ function generateGridSquare(innerNumber, squareWidth) {
 /**
  * Funzione che controlla se il numero cliccato è una bomba o meno,
  * se è una bomba l'utete perde altrimeti aggiunge il numero cliccato nell'array degli elementi cliccati
- * se gli elementi cliccati sono 
+ * se gli elementi cliccati sono uguali al numero massimo della griglia - 16 allora l'utente vince.
  */
 function squareClick() {
     const clickedNumber = parseInt(this.textContent);
@@ -134,13 +134,9 @@ function squareClick() {
         this.classList.add("bomb")
     } else {
         this.classList.add("clicked-bg");
+        numbersClicked.push(clickedNumber);
+        console.log(numbersClicked);
     }
 
     
 }
-
-
-
-
-
-

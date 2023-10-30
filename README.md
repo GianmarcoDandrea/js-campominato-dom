@@ -14,5 +14,6 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 1. Stampare la griglia 10 x 10
 2. Quando si clicca su una casella si colora di azzurro
 3. Metto in console il numero selezionato
+4. hvlkjhvkjhv
 
 

@@ -1,0 +1,87 @@
+/********************* ROOT *****************/
+:root {
+    --wrapper-bg-color: #7fffd4;
+    --white-bg-color: #ffffff;
+
+    /* header */
+    /* debug */
+    --header-heigth: 10vh;
+
+    /* wrapper */
+    /* debug */
+    --wrapper-heigth: 85vh;
+
+    /* footer */
+    /* debug */
+    --footer-heigth: 5vh;
+}
+
+/******************** RESET *****************/
+img {
+    max-width: 100%;
+}
+
+
+/****************** UTILITIES **************/
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+/***************** HEADER ****************/
+header {
+    background-color: var(--white-bg-color);
+    /* debug */
+    height: var(--header-heigth);
+    ;
+}
+
+.logo {
+    width: 5%;
+}
+
+.rigth-side {
+    width: 30%;
+}
+
+/****************** WRAPPER *****************/
+.wrapper {
+    background-color: var(--wrapper-bg-color);
+    /* debug */
+    height: var(--wrapper-heigth);
+}
+
+#grid {
+    width: 40%;
+}
+
+.square {
+    aspect-ratio: 1;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dif-easy {
+    width: calc(100% / 7);
+}
+
+.dif-medium {
+    width: calc(100% / 9);
+}
+
+.dif-hard {
+    width: calc(100% / 10);
+}
+
+.clicked-bg {
+    background-color: lightblue;
+}
+
+/****************** FOOTER ****************/
+footer {
+    background-color: var(--white-bg-color);
+    /* debug */
+    height: var(--footer-heigth);
+}

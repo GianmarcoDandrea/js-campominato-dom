@@ -82,7 +82,6 @@ function generateRndNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-
 /**
  * Genera un numero di 16 bombe comprese tra 1 e maxNumberBomb e le inserisce in un array
  * @param {number} maxNumberBomb
@@ -99,9 +98,6 @@ function generateBomb(maxNumberBomb) {
     }
     return bombArray;
 }
-
-
-
 
 /**
  * Dà al numero dell'array la classe square e la classe della larghezza in base alla difficoltà scelta, così da creare la cella con i bordi
@@ -121,7 +117,6 @@ function generateGridSquare(innerNumber, squareWidth) {
     return newSquare;
 }
 
-
 /**
  * Funzione che controlla se il numero cliccato è una bomba o meno,
  * se è una bomba l'utete perde altrimeti aggiunge il numero cliccato nell'array degli elementi cliccati
@@ -137,6 +132,4 @@ function squareClick() {
         numbersClicked.push(clickedNumber);
         console.log(numbersClicked);
     }
-
-    
 }

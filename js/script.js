@@ -7,6 +7,7 @@ let arrayBomb = [];
 let widthSquare = "";
 let squareNumber = "";
 let gameResult = "gameNotOver";
+const squares = [];
 
 // Quando premo il tasto gioca
 playBtn.addEventListener("click", function () {
@@ -49,7 +50,7 @@ playBtn.addEventListener("click", function () {
         //Genera lo square con il numero all'interno a la classe in base alla difficoltà
         const square = generateGridSquare(curNumber, widthSquare);
         square.addEventListener("click", squareClick);
-
+        // squares.push(square);
 
         gridElem.append(square);
     }
@@ -136,6 +137,11 @@ function squareClick() {
             // aggiunge la classe bomb al numero cliccato
             this.classList.add("bomb");
 
+            for (let i = 0; i < arrayBomb.length; i++) {
+                const bomb = arrayBomb[i];
+                document.querySelectorAll('.square')[bomb].classList.add('bomb');
+            }
+            
             // conta la lunghezza dell'array dei numeri cliccati prima della bomba
             let clickedNumberlenght = parseInt(numbersClicked.length)
             console.log(clickedNumberlenght);
